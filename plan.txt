@@ -1,0 +1,11 @@
+Jeg vil lage en app som fungerer som et metronom og der man kan slå opp akkorder til gitar.
+
+Startsiden skal man ha to valg.
+man kan velge mellom Metronom eller Chords.
+På metronom siden er det en stor sirkel hvor man kan velge takt og BPM/tempo. man skal også kunne starte og slutte metronomet. 
+
+På Chords siden har man muligheten til å velge hvilken akkord man vil ha og om den er i dur eller moll.
+så skal de mulighetene man har vises fram. Der skal man kunne slette en akkord.
+Man skal også ha mulighet til å legge til akkorder. og akkorden man legger til blir lagt til i i den kategorien som var valgt. foreksempel A Major.
+
+På legg til akkorder siden er det en blank akkord der man kan "tegne" en akkord og lagre den.
