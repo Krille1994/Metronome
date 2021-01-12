@@ -6,7 +6,6 @@
     width: 40vw;
     height: 71vh;
     border-radius: 50%;
-    background-color: grey;
     position: absolute;
     margin: 14.5vh 30vw;
     text-align: center;
@@ -19,6 +18,13 @@
     position: relative;
     left: 2.5vw;
     top: 4.5vh;
+}
+#timingDiv {
+    position: absolute;
+    z-index: 10;
+    width: 80vw;
+    height: 80vh;
+    margin: 10vh 10vw 10vh 10vw;
 }
 /* #metValues {
     width: 100%;
@@ -34,4 +40,13 @@
 #BPM {
     font-size: 500%;
     padding-top: 5vh;
+}
+.chordLetter {
+    float: left;
+}
+.greenChordLetter {
+    color: green;
+}
+#chordType {
+    clear: left;
 }

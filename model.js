@@ -1,232 +1,632 @@
 const model = {
     metronome: {
         timing: {
-            upper: 3,
+            upper: 4,
             lower: 4,
+            allTimings: ['2/4', '3/4', '4/4', '2/2', '3/2', '4/2', '2/8', '3/8', '4/8', ],
         },
-        bpm: 80,
+        bpm: 120,
         metronomeOn: false,
+        color: 'grey',
     },
     chordsPage: {
-        chordLetter: 'a',
-        chordType: {
-            major: true,
-            minor: false,
-            diminished: false,
-            major7th: false,
-            minor7th: false,
-            dominant7th: false,
-            suspended: false,
-            augmented: false,
-            extended: false,
-            other: false,
-        },
-        allChords: {
-            C: {
-                major: [
+        chosenChordLetter: 'C',
+        chosenChordType: 'Major',
+        chordLetterList: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'],
+        chordTypes: [
+            {type: 'Major', chosen: true,},
+            {type: 'Minor', chosen: false,},
+            {type: 'Diminished', chosen: false,},
+            {type: 'Major7th', chosen: false,},
+            {type: 'Minor7th', chosen: false,},
+            {type: 'Dominant7th', chosen: false,},
+            {type: 'Suspended', chosen: false,},
+            {type: 'Augmented', chosen: false,},
+            {type: 'Extended', chosen: false,},
+            {type: 'Other', chosen: false,},
+        ],
+        allChords: [
+            {
+                letter: 'C',
+                chord: [
                     {
-                        startFret: 0,
-                        EString: false,
-                        aString: 3,
-                        dString: 2,
-                        gString: 0,
-                        bString: 1,
-                        eString: 0,
+                        type: 'Major',
+                        chords: [
+                            {
+                                startFret: 0,
+                                EString: false,
+                                aString: 3,
+                                dString: 2,
+                                gString: 0,
+                                bString: 1,
+                                eString: 0,
+                            },
+                        ],
+                    },
+                    {
+                        type: 'Minor',
+                        chords: [
+                            {
+                                startFret: 3,
+                                EString: false,
+                                aString: false,
+                                dString: 3,
+                                gString: 3,
+                                bString: 2,
+                                eString: 1,
+                            },
+                        ],
+                    },
+                    {
+                        type: 'Diminished',
+                        chords: [],
+                    },
+                    {
+                        type: 'Major7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Dominant7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Suspended',
+                        chords: [],
+                    },
+                    {
+                        type: 'Augmented',
+                        augmented: [],
+                    },
+                    {
+                        type: 'Extended',
+                        extended: [],
+                    },
+                    {
+                        type: 'Other',
+                        other: [],
                     },
                 ],
-                minor: [
+            },
+            {
+                letter: 'C#',
+                chord: [
                     {
-                        startFret: 3,
-                        EString: false,
-                        aString: false,
-                        dString: 3,
-                        gString: 3,
-                        bString: 2,
-                        eString: 1,
+                        type: 'Major',
+                        chords: [
+                            {
+                                startFret: 1,
+                                EString: false,
+                                aString: 3,
+                                dString: 2,
+                                gString: 1,
+                                bString: 2,
+                                eString: 1,
+                            },
+                        ],
+                    },
+                    {
+                        type: 'Minor',
+                        chords: [
+                            {
+                                startFret: 4,
+                                EString: false,
+                                aString: 1,
+                                dString: 3,
+                                gString: 3,
+                                bString: 2,
+                                eString: 1,
+                            },
+                        ],
+                    },
+                    {
+                        type: 'Diminished',
+                        chords: [],
+                    },
+                    {
+                        type: 'Major7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Dominant7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Suspended',
+                        chords: [],
+                    },
+                    {
+                        type: 'Augmented',
+                        chords: [],
+                    },
+                    {
+                        type: 'Extended',
+                        chords: [],
+                    },
+                    {
+                        type: 'Other',
+                        chords: [],
                     },
                 ],
-                diminished: [],
-                major7th: [],
-                minor7th: [],
-                dominant7th: [],
-                suspended: [],
-                augmented: [],
-                extended: [],
-                other: [],
             },
-            Csharp: {
-                major: [
+            {
+                letter: 'D',
+                chord: [
                     {
-                        startFret: 1,
-                        EString: false,
-                        aString: 3,
-                        dString: 2,
-                        gString: 1,
-                        bString: 2,
-                        eString: 1,
+                        type: 'Major',
+                        chords: [
+                            {
+                                startFret: 0,
+                                EString: false,
+                                aString: false,
+                                dString: 0,
+                                gString: 2,
+                                bString: 3,
+                                eString: 2,
+                            },
+                        ],
+                    },
+                    {
+                        type: 'Minor',
+                        chords: [
+                            {
+                                startFret: 0,
+                                EString: false,
+                                aString: false,
+                                dString: 0,
+                                gString: 1,
+                                bString: 3,
+                                eString: 2,
+                            },
+                        ],
+                    },
+                    {
+                        type: 'Diminished',
+                        chords: [],
+                    },
+                    {
+                        type: 'Major7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Dominant7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Suspended',
+                        chords: [],
+                    },
+                    {
+                        type: 'Augmented',
+                        chords: [],
+                    },
+                    {
+                        type: 'Extended',
+                        extended: [],
+                    },
+                    {
+                        type: 'Other',
+                        other: [],
                     },
                 ],
-                minor: [
+            },
+            {
+                letter: 'D#',
+                Dsharp: [
                     {
-                        startFret: 4,
-                        EString: false,
-                        aString: 1,
-                        dString: 3,
-                        gString: 3,
-                        bString: 2,
-                        eString: 1,
+                        type: 'Major',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor',
+                        chords: [],
+                    },
+                    {
+                        type: 'Diminished',
+                        chords: [],
+                    },
+                    {
+                        type: 'Major7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Dominant7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Suspended',
+                        chords: [],
+                    },
+                    {
+                        type: 'Augmented',
+                        augmented: [],
+                    },
+                    {
+                        type: 'Extended',
+                        extended: [],
+                    },
+                    {
+                        type: 'Other',
+                        other: [],
                     },
                 ],
-                diminished: [],
-                major7th: [],
-                minor7th: [],
-                dominant7th: [],
-                suspended: [],
-                augmented: [],
-                extended: [],
-                other: [],
             },
-            D: {
-                major: [
+            {
+                letter: 'E',
+                E: [
                     {
-                        startFret: 0,
-                        EString: false,
-                        aString: false,
-                        dString: 0,
-                        gString: 2,
-                        bString: 3,
-                        eString: 2,
+                        type: 'Major',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor',
+                        chords: [],
+                    },
+                    {
+                        type: 'Diminished',
+                        chords: [],
+                    },
+                    {
+                        type: 'Major7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Dominant7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Suspended',
+                        chords: [],
+                    },
+                    {
+                        type: 'Augmented',
+                        augmented: [],
+                    },
+                    {
+                        type: 'Extended',
+                        extended: [],
+                    },
+                    {
+                        type: 'Other',
+                        other: [],
                     },
                 ],
-                minor: [
+            },
+            {
+                letter: 'F',
+                F: [
                     {
-                        startFret: 0,
-                        EString: false,
-                        aString: false,
-                        dString: 0,
-                        gString: 1,
-                        bString: 3,
-                        eString: 2,
+                        type: 'Major',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor',
+                        chords: [],
+                    },
+                    {
+                        type: 'Diminished',
+                        chords: [],
+                    },
+                    {
+                        type: 'Major7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Dominant7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Suspended',
+                        chords: [],
+                    },
+                    {
+                        type: 'Augmented',
+                        augmented: [],
+                    },
+                    {
+                        type: 'Extended',
+                        extended: [],
+                    },
+                    {
+                        type: 'Other',
+                        other: [],
                     },
                 ],
-                diminished: [],
-                major7th: [],
-                minor7th: [],
-                dominant7th: [],
-                suspended: [],
-                augmented: [],
-                extended: [],
-                other: [],
             },
-            Dsharp: {
-                major: [],
-                minor: [],
-                diminished: [],
-                major7th: [],
-                minor7th: [],
-                dominant7th: [],
-                suspended: [],
-                augmented: [],
-                extended: [],
-                other: [],
+            {
+                letter: 'F#',
+                Fsharp: [
+                    {
+                        type: 'Major',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor',
+                        chords: [],
+                    },
+                    {
+                        type: 'Diminished',
+                        chords: [],
+                    },
+                    {
+                        type: 'Major7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Dominant7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Suspended',
+                        chords: [],
+                    },
+                    {
+                        type: 'Augmented',
+                        augmented: [],
+                    },
+                    {
+                        type: 'Extended',
+                        extended: [],
+                    },
+                    {
+                        type: 'Other',
+                        other: [],
+                    },
+                ],
             },
-            E: {
-                major: [],
-                minor: [],
-                diminished: [],
-                major7th: [],
-                minor7th: [],
-                dominant7th: [],
-                suspended: [],
-                augmented: [],
-                extended: [],
-                other: [],
+            {
+                letter: 'G',
+                G: [
+                    {
+                        type: 'Major',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor',
+                        chords: [],
+                    },
+                    {
+                        type: 'Diminished',
+                        chords: [],
+                    },
+                    {
+                        type: 'Major7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Dominant7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Suspended',
+                        chords: [],
+                    },
+                    {
+                        type: 'Augmented',
+                        augmented: [],
+                    },
+                    {
+                        type: 'Extended',
+                        extended: [],
+                    },
+                    {
+                        type: 'Other',
+                        other: [],
+                    },
+                ],
             },
-            F: {
-                major: [],
-                minor: [],
-                diminished: [],
-                major7th: [],
-                minor7th: [],
-                dominant7th: [],
-                suspended: [],
-                augmented: [],
-                extended: [],
-                other: [],
+            {
+                letter: 'G#',
+                Gsharp: [
+                    {
+                        type: 'Major',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor',
+                        chords: [],
+                    },
+                    {
+                        type: 'Diminished',
+                        chords: [],
+                    },
+                    {
+                        type: 'Major7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Dominant7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Suspended',
+                        chords: [],
+                    },
+                    {
+                        type: 'Augmented',
+                        augmented: [],
+                    },
+                    {
+                        type: 'Extended',
+                        extended: [],
+                    },
+                    {
+                        type: 'Other',
+                        other: [],
+                    },
+                ],
             },
-            Fsharp: {
-                major: [],
-                minor: [],
-                diminished: [],
-                major7th: [],
-                minor7th: [],
-                dominant7th: [],
-                suspended: [],
-                augmented: [],
-                extended: [],
-                other: [],
+            {
+                letter: 'A',
+                A: [
+                    {
+                        type: 'Major',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor',
+                        chords: [],
+                    },
+                    {
+                        type: 'Diminished',
+                        chords: [],
+                    },
+                    {
+                        type: 'Major7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Dominant7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Suspended',
+                        chords: [],
+                    },
+                    {
+                        type: 'Augmented',
+                        augmented: [],
+                    },
+                    {
+                        type: 'Extended',
+                        extended: [],
+                    },
+                    {
+                        type: 'Other',
+                        other: [],
+                    },
+                ],
             },
-            G: {
-                major: [],
-                minor: [],
-                diminished: [],
-                major7th: [],
-                minor7th: [],
-                dominant7th: [],
-                suspended: [],
-                augmented: [],
-                extended: [],
-                other: [],
+            {
+                letter: 'A#',
+                Asharp: [
+                    {
+                        type: 'Major',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor',
+                        chords: [],
+                    },
+                    {
+                        type: 'Diminished',
+                        chords: [],
+                    },
+                    {
+                        type: 'Major7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Dominant7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Suspended',
+                        chords: [],
+                    },
+                    {
+                        type: 'Augmented',
+                        augmented: [],
+                    },
+                    {
+                        type: 'Extended',
+                        extended: [],
+                    },
+                    {
+                        type: 'Other',
+                        other: [],
+                    },
+                ],
             },
-            Gsharp: {
-                major: [],
-                minor: [],
-                diminished: [],
-                major7th: [],
-                minor7th: [],
-                dominant7th: [],
-                suspended: [],
-                augmented: [],
-                extended: [],
-                other: [],
+            {
+                letter: 'B',
+                B: [
+                    {
+                        type: 'Major',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor',
+                        chords: [],
+                    },
+                    {
+                        type: 'Diminished',
+                        chords: [],
+                    },
+                    {
+                        type: 'Major7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Minor7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Dominant7th',
+                        chords: [],
+                    },
+                    {
+                        type: 'Suspended',
+                        chords: [],
+                    },
+                    {
+                        type: 'Augmented',
+                        augmented: [],
+                    },
+                    {
+                        type: 'Extended',
+                        extended: [],
+                    },
+                    {
+                        type: 'Other',
+                        other: [],
+                    },
+                ],
             },
-            A: {
-                major: [],
-                minor: [],
-                diminished: [],
-                major7th: [],
-                minor7th: [],
-                dominant7th: [],
-                suspended: [],
-                augmented: [],
-                extended: [],
-                other: [],
-            },
-            Asharp: {
-                major: [],
-                minor: [],
-                diminished: [],
-                major7th: [],
-                minor7th: [],
-                dominant7th: [],
-                suspended: [],
-                augmented: [],
-                extended: [],
-                other: [],
-            },
-            B: {
-                major: [],
-                minor: [],
-                diminished: [],
-                major7th: [],
-                minor7th: [],
-                dominant7th: [],
-                suspended: [],
-                augmented: [],
-                extended: [],
-                other: [],
-            },
-        }
+        ],
     },
     createChordsPage: {
         newChord:
