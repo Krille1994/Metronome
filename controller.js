@@ -1,4 +1,5 @@
 function startStop() {
+    console.log('har trykt');
     if (model.metronome.metronomeOn) {
         model.metronome.metronomeOn = false;
         clearInterval(mainInterval);
@@ -72,4 +73,89 @@ function bpmAlternatives() {
 function chooseBpmAlternatives(beat) {
     model.metronome.bpm = parseInt(beat);
     showMetronome();
+}
+
+
+// funksjoner for Chords 
+
+function selectChordLetter(div) {
+    model.chordsPage.chosenChordLetter = div.innerHTML;
+    showChords();
+}
+// funksjon for tegning av chords
+function drawChord(x,y) {
+let string = model.createChordsPage;
+    if (x == 0) {string.EString === y ? string.EString = 0 : string.EString = y}
+    if (x == 1) {string.aString === y ? string.aString = 0 : string.aString = y}
+    if (x == 2) {string.dString === y ? string.dString = 0 : string.dString = y}
+    if (x == 3) {string.gString === y ? string.gString = 0 : string.gString = y}
+    if (x == 4) {string.bString === y ? string.bString = 0 : string.bString = y}
+    if (x == 5) {string.eString === y ? string.eString = 0 : string.eString = y}
+
+    createChordsView(true);
+}
+
+function createChordSelectFret(i) {
+    console.log(i);
+    model.createChordsPage.startFret = parseInt(i);
+    createChordsView();
+}
+function resetCreateChords() {
+    model.createChordsPage = {
+        startFret: 0,
+        EString: 0,
+        aString: 0,
+        dString: 0,
+        gString: 0,
+        bString: 0,
+        eString: 0,
+    },
+    showChords();
+}
+function selectChord(i, o, u) {
+    let selected = model.chordsPage.selectedChord;
+    console.log(selected[0], selected[1], selected[2]);
+    console.log(i, o, u);
+    if (selected[0] === i && selected[1] === o && selected[2] === u) {
+        model.chordsPage.selectedChord = ['', '', ''];
+    }
+    else {
+        model.chordsPage.selectedChord = [i, o, u];
+    }
+    showChords();
+}
+
+function deleteChordFunction() {
+    if (confirm('Press OK to delete chord')) {
+        model.chordsPage.allChords[model.chordsPage.selectedChord[0]].chord[model.chordsPage.selectedChord[1]].chords.splice(model.chordsPage.selectedChord[2], 1);
+        model.chordsPage.selectedChord = ['', '', ''];
+    }
+    showChords();
+}
+
+function addChord() {
+    for (let i = 0; i < model.chordsPage.allChords.length; i++) {
+        if (model.chordsPage.allChords[i].letter == model.chordsPage.chosenChordLetter) {
+            for (let o = 0; o < model.chordsPage.allChords[i].chord.length; o++) {
+                if (model.chordsPage.allChords[i].chord[o].type == model.chordsPage.chosenChordType) {
+                    model.chordsPage.allChords[i].chord[o].chords.push(model.createChordsPage);
+                    resetCreateChords();
+                }
+            }
+        }
+    }
+    showChords();
+}
+
+function changeChord() {
+    let x = model.chordsPage.selectedChord;
+    model.createChordsPage = model.chordsPage.allChords[x[0]].chord[x[1]].chords[x[2]];
+    createChordsView(false);
+}
+function saveChangedChord() {
+    let x = model.chordsPage.selectedChord;
+    model.chordsPage.allChords[x[0]].chord[x[1]].chords[x[2]] = model.createChordsPage;
+    model.chordsPage.selectedChord = ['', '', ''];
+    resetCreateChords();
+    showChords();
 }

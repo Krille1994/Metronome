@@ -50,3 +50,15 @@
 #chordType {
     clear: left;
 }
+.startFret {
+    float: left;
+}
+.fretboard {
+    float: left;
+}
+#createChordsDiv {
+    width: 500px;
+    height: 800px;
+    background-color: hotpink;
+    float: left;
+}
