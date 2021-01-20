@@ -43,22 +43,47 @@
 }
 .chordLetter {
     float: left;
+    font-size: 50px;
+    margin-left: 50px;
 }
 .greenChordLetter {
     color: green;
 }
 #chordType {
     clear: left;
+    font-size: larger;
 }
 .startFret {
     float: left;
 }
 .fretboard {
     float: left;
+    margin-left: 30px;
 }
 #createChordsDiv {
     width: 500px;
     height: 800px;
     background-color: hotpink;
     float: left;
+}
+#addButton {
+    left: 200px;
+    bottom: 10vh;
+}
+#changeButton {
+    left: 250px;
+    bottom: 10vh;
+}
+#deleteButton {
+    left: 300px;
+    bottom: 10vh;
+}
+.chordButtons {
+    position: relative;
+    width: 150px;
+    height: 30px;
+    font-size: larger;
+}
+.chordTypes {
+    margin: 20px 0 100px 20px;
 }

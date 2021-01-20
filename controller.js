@@ -1,5 +1,4 @@
 function startStop() {
-    console.log('har trykt');
     if (model.metronome.metronomeOn) {
         model.metronome.metronomeOn = false;
         clearInterval(mainInterval);
@@ -79,11 +78,14 @@ function chooseBpmAlternatives(beat) {
 // funksjoner for Chords 
 
 function selectChordLetter(div) {
-    model.chordsPage.chosenChordLetter = div.innerHTML;
-    showChords();
+    if (model.chordsPage.chosenChordLetter != div.innerHTML) {
+        model.chordsPage.chosenChordLetter = div.innerHTML;
+        resetSelectedChord();
+        showChords();
+    }
 }
 // funksjon for tegning av chords
-function drawChord(x,y) {
+function drawChord(x,y, bool) {
 let string = model.createChordsPage;
     if (x == 0) {string.EString === y ? string.EString = 0 : string.EString = y}
     if (x == 1) {string.aString === y ? string.aString = 0 : string.aString = y}
@@ -92,13 +94,11 @@ let string = model.createChordsPage;
     if (x == 4) {string.bString === y ? string.bString = 0 : string.bString = y}
     if (x == 5) {string.eString === y ? string.eString = 0 : string.eString = y}
 
-    createChordsView(true);
+    createChordsView(bool);
 }
 
 function createChordSelectFret(i) {
-    console.log(i);
     model.createChordsPage.startFret = parseInt(i);
-    createChordsView();
 }
 function resetCreateChords() {
     model.createChordsPage = {
@@ -114,10 +114,8 @@ function resetCreateChords() {
 }
 function selectChord(i, o, u) {
     let selected = model.chordsPage.selectedChord;
-    console.log(selected[0], selected[1], selected[2]);
-    console.log(i, o, u);
     if (selected[0] === i && selected[1] === o && selected[2] === u) {
-        model.chordsPage.selectedChord = ['', '', ''];
+        resetSelectedChord();
     }
     else {
         model.chordsPage.selectedChord = [i, o, u];
@@ -128,7 +126,7 @@ function selectChord(i, o, u) {
 function deleteChordFunction() {
     if (confirm('Press OK to delete chord')) {
         model.chordsPage.allChords[model.chordsPage.selectedChord[0]].chord[model.chordsPage.selectedChord[1]].chords.splice(model.chordsPage.selectedChord[2], 1);
-        model.chordsPage.selectedChord = ['', '', ''];
+        resetSelectedChord();
     }
     showChords();
 }
@@ -155,7 +153,10 @@ function changeChord() {
 function saveChangedChord() {
     let x = model.chordsPage.selectedChord;
     model.chordsPage.allChords[x[0]].chord[x[1]].chords[x[2]] = model.createChordsPage;
-    model.chordsPage.selectedChord = ['', '', ''];
+    resetSelectedChord();
     resetCreateChords();
     showChords();
+}
+function resetSelectedChord() {
+    model.chordsPage.selectedChord = ['', '', ''];
 }

@@ -132,52 +132,52 @@ function createChordsView(bool) {
     }
     html += `
     // rektangler for muting av strenger
-    <rect x="0" y="0" width="50" height="50" style="fill-opacity: 0" onclick="drawChord(0,false)"/>
-    <rect x="90" y="0" width="50" height="50" style="fill-opacity: 0" onclick="drawChord(1,false)"/>
-    <rect x="180" y="0" width="50" height="50" style="fill-opacity: 0" onclick="drawChord(2,false)"/>
-    <rect x="270" y="0" width="50" height="50" style="fill-opacity: 0" onclick="drawChord(3,false)"/>
-    <rect x="360" y="0" width="50" height="50" style="fill-opacity: 0" onclick="drawChord(4,false)"/>
-    <rect x="450" y="0" width="50" height="50" style="fill-opacity: 0" onclick="drawChord(5,false)"/>
+    <rect x="0" y="0" width="50" height="50" style="fill-opacity: 0" onclick="drawChord(0,false, ${bool})"/>
+    <rect x="90" y="0" width="50" height="50" style="fill-opacity: 0" onclick="drawChord(1,false, ${bool})"/>
+    <rect x="180" y="0" width="50" height="50" style="fill-opacity: 0" onclick="drawChord(2,false, ${bool})"/>
+    <rect x="270" y="0" width="50" height="50" style="fill-opacity: 0" onclick="drawChord(3,false, ${bool})"/>
+    <rect x="360" y="0" width="50" height="50" style="fill-opacity: 0" onclick="drawChord(4,false, ${bool})"/>
+    <rect x="450" y="0" width="50" height="50" style="fill-opacity: 0" onclick="drawChord(5,false, ${bool})"/>
 
         // Rektangler for 1 fret
-    <rect x="0" y="50" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(0,1)"/>
-    <rect x="90" y="50" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(1,1)"/>
-    <rect x="180" y="50" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(2,1)"/>
-    <rect x="270" y="50" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(3,1)"/>
-    <rect x="360" y="50" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(4,1)"/>
-    <rect x="450" y="50" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(5,1)"/>
+    <rect x="0" y="50" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(0,1, ${bool})"/>
+    <rect x="90" y="50" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(1,1, ${bool})"/>
+    <rect x="180" y="50" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(2,1, ${bool})"/>
+    <rect x="270" y="50" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(3,1, ${bool})"/>
+    <rect x="360" y="50" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(4,1, ${bool})"/>
+    <rect x="450" y="50" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(5,1, ${bool})"/>
 
         // Rektangler for 2 fret
-    <rect x="0" y="200" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(0,2)"/>
-    <rect x="90" y="200" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(1,2)"/>
-    <rect x="180" y="200" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(2,2)"/>
-    <rect x="270" y="200" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(3,2)"/>
-    <rect x="360" y="200" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(4,2)"/>
-    <rect x="450" y="200" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(5,2)"/>
+    <rect x="0" y="200" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(0,2, ${bool})"/>
+    <rect x="90" y="200" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(1,2, ${bool})"/>
+    <rect x="180" y="200" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(2,2, ${bool})"/>
+    <rect x="270" y="200" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(3,2, ${bool})"/>
+    <rect x="360" y="200" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(4,2, ${bool})"/>
+    <rect x="450" y="200" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(5,2, ${bool})"/>
 
         // Rektangler for 3 fret
-    <rect x="0" y="350" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(0,3)"/>
-    <rect x="90" y="350" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(1,3)"/>
-    <rect x="180" y="350" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(2,3)"/>
-    <rect x="270" y="350" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(3,3)"/>
-    <rect x="360" y="350" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(4,3)"/>
-    <rect x="450" y="350" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(5,3)"/>
+    <rect x="0" y="350" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(0,3, ${bool})"/>
+    <rect x="90" y="350" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(1,3, ${bool})"/>
+    <rect x="180" y="350" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(2,3, ${bool})"/>
+    <rect x="270" y="350" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(3,3, ${bool})"/>
+    <rect x="360" y="350" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(4,3, ${bool})"/>
+    <rect x="450" y="350" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(5,3, ${bool})"/>
         
         // Rektangler for 4 fret
-    <rect x="0" y="500" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(0,4)"/>
-    <rect x="90" y="500" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(1,4)"/>
-    <rect x="180" y="500" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(2,4)"/>
-    <rect x="270" y="500" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(3,4)"/>
-    <rect x="360" y="500" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(4,4)"/>
-    <rect x="450" y="500" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(5,4)"/>
+    <rect x="0" y="500" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(0,4, ${bool})"/>
+    <rect x="90" y="500" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(1,4, ${bool})"/>
+    <rect x="180" y="500" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(2,4, ${bool})"/>
+    <rect x="270" y="500" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(3,4, ${bool})"/>
+    <rect x="360" y="500" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(4,4, ${bool})"/>
+    <rect x="450" y="500" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(5,4, ${bool})"/>
 
         // Rektangler for 5 fret
-    <rect x="0" y="650" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(0,5)"/>
-    <rect x="90" y="650" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(1,5)"/>
-    <rect x="180" y="650" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(2,5)"/>
-    <rect x="270" y="650" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(3,5)"/>
-    <rect x="360" y="650" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(4,5)"/>
-    <rect x="450" y="650" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(5,5)"/>
+    <rect x="0" y="650" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(0,5, ${bool})"/>
+    <rect x="90" y="650" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(1,5, ${bool})"/>
+    <rect x="180" y="650" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(2,5, ${bool})"/>
+    <rect x="270" y="650" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(3,5, ${bool})"/>
+    <rect x="360" y="650" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(4,5, ${bool})"/>
+    <rect x="450" y="650" width="50" height="100" style="fill-opacity: 0" onclick="drawChord(5,5, ${bool})"/>
 
         </svg>
     </div>
@@ -222,21 +222,22 @@ function showChords() {
     for (let i = 0; i < chords.chordTypes.length; i++) {
         if (chords.chordTypes[i] == chords.chosenChordType){
             html += `
-                <label for="${chords.chordTypes[i]}">${chords.chordTypes[i]}</label>
+                <label class="chordTypes" for="${chords.chordTypes[i]}">${chords.chordTypes[i]}</label>
                 <input type="checkbox" id="${chords.chordTypes[i]}" checked onchange="model.chordsPage.chosenChordType = this.id, showChords()"><br>
             `;
         }
         else {
             html += `
-                <label for="${chords.chordTypes[i]}">${chords.chordTypes[i]}</label>
+                <label class="chordTypes" for="${chords.chordTypes[i]}">${chords.chordTypes[i]}</label>
                 <input type="checkbox" id="${chords.chordTypes[i]}" onchange="model.chordsPage.chosenChordType = this.id, showChords()"><br>
             `;
         }
     }
     html += `</div>
-            <button onclick="createChordsView(true)">Add Chord</button>
-            <button onclick="changeChord()">Change Chord</button>
-            <button onclick="deleteChordFunction()">Delete Chord</button>
+            <button id="addButton" class="chordButtons" onclick="createChordsView(true)">Add Chord</button>
+            <button id="changeButton" class="chordButtons" onclick="changeChord()"
+            ${chords.selectedChord[0] !== '' ? '' : 'disabled'}>Change Chord</button>
+            <button id="deleteButton" class="chordButtons" onclick="deleteChordFunction()" ${chords.selectedChord[0] !== '' ? '' : 'disabled'}>Delete Chord</button>
     `;
     html += showChordsHelp();
     app.innerHTML = html;
