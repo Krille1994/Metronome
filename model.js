@@ -1,6 +1,7 @@
 const model = {
     metronome: {
         timing: {
+            timer: 4,
             upper: 4,
             lower: 4,
             allTimings: ['2/4', '3/4', '4/4', '2/2', '3/2', '4/2', '2/8', '3/8', '4/8', ],

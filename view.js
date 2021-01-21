@@ -22,6 +22,28 @@ function showMetronome() {
         </div>
         `;
 }
+function timingAlternatives() {
+    if (!model.metronome.metronomeOn) {
+        let html = '<div id="timingDiv">';
+        for (let i = 0; i < model.metronome.timing.allTimings.length; i++) {
+            html += `
+                <div onclick="chooseTimingAlternatives(this.innerHTML)">${model.metronome.timing.allTimings[i]}</div>
+            `;
+        }
+        app.innerHTML = html + '</div>';
+    }
+}
+function bpmAlternatives() {
+    if (!model.metronome.metronomeOn) {
+        let html = '<div id="timingDiv">';
+        for (let i = 30; i <= 240; i += 5) {
+            html += `
+                <div onclick="chooseBpmAlternatives(this.innerHTML)">${i}</div>
+            `;
+        }
+        app.innerHTML = html + '</div>';
+    }
+}
 
 function createChordsView(bool) {
     let html = `
@@ -372,7 +394,7 @@ function showChordsHelp2(strings) {
             }
         }
     }
-    if (strings.estring === false) {
+    if (strings.eString === false) {
         html += `
             <circle cx="210" cy="10" r="10" fill="grey"/>
         `;

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Test Suite</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.14.0.css">
+  </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.14.0.js"></script>
+    <script src="controller.js"></script>
+
+    <script>
+        
+        // Model
+        
+        const model = {
+            metronome: {
+                bpm: 60,
+                timing: {
+                    upper: 2,
+                    lower: 2
+                },
+            },
+        };
+        function showMetronome() {
+
+}
+        
+        // Positive tests
+        QUnit.test('should set model.metronome.bpm to 100', function(assert) {
+            chooseBpmAlternatives(100);
+            const actual = model.metronome.bpm;
+            const expected = 100;
+            assert.equal(actual, expected);
+        });
+        QUnit.test('should set model.metronome.timing.upper to 3', function(assert) {
+            chooseTimingAlternatives('3/4');
+            const actual1 = model.metronome.timing.upper;
+            const expected1 = 3;
+            assert.equal(actual1, expected1);
+        });
+        QUnit.test('should set model.metronome.timing.lower to 4', function(assert) {
+            chooseTimingAlternatives('3/4');
+            const actual1 = model.metronome.timing.lower;
+            const expected1 = 4;
+            assert.equal(actual1, expected1);
+        });
+
+        // Negative tests
+        QUnit.test('wrong input should set metronome.bpm to 60', function(assert) {
+            chooseBpmAlternatives('sadfa');
+            const actual = model.metronome.bpm;
+            const expected = 60;
+            assert.equal(actual, expected);
+        });
+        QUnit.test('wrong input should set timing.upper to 4', function(assert) {
+            chooseTimingAlternatives(undefined);
+            const actual = model.metronome.timing.upper;
+            const expected = 4;
+            assert.equal(actual, expected);
+        });
+        QUnit.test('wrong input should set timing.lower to 4', function(assert) {
+            chooseTimingAlternatives(false);
+            const actual = model.metronome.timing.lower;
+            const expected = 4;
+            assert.equal(actual, expected);
+        });
+      </script>
+</body>
+</html>

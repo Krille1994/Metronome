@@ -3,7 +3,7 @@ function startStop() {
         model.metronome.metronomeOn = false;
         clearInterval(mainInterval);
         clearInterval(subInterval);
-        timer = model.metronome.timing.upper;
+        model.metronome.timing.timer = model.metronome.timing.upper;
     }
     else {
         model.metronome.metronomeOn = true;
@@ -12,13 +12,12 @@ function startStop() {
 }
 let mainInterval;
 let subInterval;
-let timer = model.metronome.timing.upper;
 function startTimer() {
     startSubtimer();
     mainInterval = setInterval(mainTimer, 60/model.metronome.bpm*1000);
 }
 function mainTimer() {
-    if (timer == model.metronome.timing.upper) {
+    if (model.metronome.timing.timer == model.metronome.timing.upper) {
         model.metronome.color = 'red';
         showMetronome();
     }
@@ -26,7 +25,7 @@ function mainTimer() {
         model.metronome.color = 'green';
         showMetronome();
     }
-    timer == 1 ? timer = model.metronome.timing.upper : timer--;
+    model.metronome.timing.timer == 1 ? model.metronome.timing.timer = model.metronome.timing.upper : model.metronome.timing.timer--;
 }
 function startSubtimer() {
     setTimeout(function() {
@@ -39,39 +38,32 @@ function subTimer() {
 }
 
 // funksjon for å vise alternativer til tidssignaturene i metronomet
-function timingAlternatives() {
-    if (!model.metronome.metronomeOn) {
-        let html = '<div id="timingDiv">';
-        for (let i = 0; i < model.metronome.timing.allTimings.length; i++) {
-            html += `
-                <div onclick="chooseTimingAlternatives(this.innerHTML)">${model.metronome.timing.allTimings[i]}</div>
-            `;
-        }
-        app.innerHTML = html + '</div>';
-    }
-}
+
 function chooseTimingAlternatives(timing) {
-    model.metronome.timing.upper = timing.substr(0, timing.indexOf('/'));
-    model.metronome.timing.lower = timing.substr(timing.indexOf('/')+1);
+    if (typeof(timing) != 'string' || timing.length != 3){
+        model.metronome.timing.upper = 4;
+        model.metronome.timing.lower = 4;
+    }
+    else {
+        model.metronome.timing.upper = parseInt(timing.substr(0, timing.indexOf('/')));
+        model.metronome.timing.lower = timing.substr(timing.indexOf('/')+1,1);
+    }
 
     showMetronome();
 }
 
 // funksjon for å vise alterntive BPMer
-function bpmAlternatives() {
-    if (!model.metronome.metronomeOn) {
-        let html = '<div id="timingDiv">';
-        for (let i = 30; i <= 240; i += 5) {
-            html += `
-                <div onclick="chooseBpmAlternatives(this.innerHTML)">${i}</div>
-            `;
-        }
-        app.innerHTML = html + '</div>';
-    }
-}
+
 function chooseBpmAlternatives(beat) {
-    model.metronome.bpm = parseInt(beat);
-    showMetronome();
+    
+    if (beat <= 240 && beat >= 30 && (typeof(beat) == 'number' ||typeof(beat) == 'string' && parseInt(beat) != 'number')) {
+        model.metronome.bpm = parseInt(beat);
+        showMetronome();
+    }
+    else {
+        model.metronome.bpm = 60;
+        showMetronome();
+    }
 }
 
 
